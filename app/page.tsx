@@ -9,10 +9,17 @@ function App() {
   const [currenttodo , setCurrentTodo] = useState<string>("");
   const [editindex, setEditIndex] = useState<number | null>(null);
 
+  // useEffect(() => {
+  //   const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  //   setTodos(savedTodos);
+  // }, []);
+
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    setTodos(savedTodos);
+    const savedTodos = localStorage.getItem("todos");
+    const parsedTodos = savedTodos ? JSON.parse(savedTodos) : [];
+    setTodos(parsedTodos);
   }, []);
+  
 
   useEffect(()=>{
     localStorage.setItem("todos",JSON.stringify(todos)); 
