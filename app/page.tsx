@@ -40,11 +40,11 @@ function App() {
     setCurrentTodo("")
   }
 
-  const handleDelete = (index) =>{
+  const handleDelete = (index: number) =>{
     setTodos(todos.filter((_,i)=> i !== index))
   }
 
-  const handleEdit = (index)=>{
+  const handleEdit = (index: number)=>{
     setCurrentTodo(todos[index]);
     setEditIndex(index);
   };
